@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+use FrankVerhoeven\Aoc2024\CodeCracker;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$day = (int) ($argv[1] ?? 1);
+$part = (int) ($argv[2] ?? 1);
+
+$class = 'FrankVerhoeven\Aoc2024\Day' . $day . '\Day' . $day . 'Part' . $part;
+$inputFile = dirname(__DIR__) . '/src/Day' . $day . '/' . basename($argv[3] ?? 'input.txt');
+
+if (!class_exists($class) || !is_a($class, CodeCracker::class, true)) {
+    echo 'Specify the correct day and part name to use the correct cracker.' . PHP_EOL;
+    exit(1);
+}
+
+if (!file_exists($inputFile)) {
+    echo 'Input file not found.' . PHP_EOL;
+    exit(1);
+}
+
+$codeCracker = $class::fromStringInput(trim(file_get_contents($inputFile)));
+
+echo 'Result: ' . $codeCracker->crackTheCode() . PHP_EOL;
