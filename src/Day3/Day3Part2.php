@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Aoc2024\Day3;
+namespace FrankVerhoeven\AoC2024\Day3;
 
-use FrankVerhoeven\Aoc2024\CodeCracker;
+use FrankVerhoeven\AoC2024\PuzzleSolver;
 
-final readonly class Day3Part2 implements CodeCracker
+final readonly class Day3Part2 implements PuzzleSolver
 {
     private string $input;
 
-    public static function fromStringInput(string $input): CodeCracker
+    public static function fromStringInput(string $input): PuzzleSolver
     {
-        $codeCracker = new self();
-        $codeCracker->input = \str_replace(\PHP_EOL, '', $input);
+        $solver = new self();
+        $solver->input = \str_replace(\PHP_EOL, '', $input);
 
-        return $codeCracker;
+        return $solver;
     }
 
-    public function crackTheCode(): string
+    public function solve(): string
     {
         $explodedDont = \explode('don\'t()', $this->input);
         $parsedLine = \array_shift($explodedDont);

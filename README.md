@@ -3,10 +3,10 @@
 To run:
 
 ```shell
-./bin/crackthecode [day] [part] [input]
+./bin/solve [day] [part] [input]
 ```
 
-For example; to run day 3, part 1, with the default input file:
+For example; to solve day 3, part 1, with the default input file:
 ```shell
-./bin/crackthecode 3 1
+./bin/solve 3 1
 ```

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Aoc2024\Day4;
+namespace FrankVerhoeven\AoC2024\Day4;
 
-use FrankVerhoeven\Aoc2024\CodeCracker;
+use FrankVerhoeven\AoC2024\PuzzleSolver;
 
-final readonly class Day4Part2 implements CodeCracker
+final readonly class Day4Part2 implements PuzzleSolver
 {
     /** @var list<string> */
     private array $input;
@@ -13,22 +13,30 @@ final readonly class Day4Part2 implements CodeCracker
     private int $rowCount;
     private int $columnCount;
 
-    public static function fromStringInput(string $input): CodeCracker
+    public static function fromStringInput(string $input): PuzzleSolver
     {
-        $codeCracker = new self();
-        $codeCracker->input = \explode(\PHP_EOL, $input);
-        $codeCracker->rowCount = \count($codeCracker->input);
-        $codeCracker->columnCount = \strlen($codeCracker->input[0]);
+        $solver = new self();
+        $solver->input = \explode(\PHP_EOL, $input);
+        $solver->rowCount = \count($solver->input);
+        $solver->columnCount = \strlen($solver->input[0]);
 
-        return $codeCracker;
+        return $solver;
     }
 
-    public function crackTheCode(): string
+    public function solve(): string
     {
         $count = 0;
 
         foreach ($this->input as $row => $line) {
+            if ($row + 2 >= $this->rowCount) {
+                break;
+            }
+
             foreach (\str_split($line) as $column => $letter) {
+                if ($column + 2 >= $this->columnCount) {
+                    break;
+                }
+
                 if ('S' !== $letter && 'M' !== $letter) {
                     continue;
                 }
@@ -44,10 +52,6 @@ final readonly class Day4Part2 implements CodeCracker
 
     private function findDownRight(int $row, int $column): bool
     {
-        if ($column + 2 >= $this->columnCount || $row + 2 >= $this->rowCount) {
-            return false;
-        }
-
         return (
             'M' === $this->input[$row][$column]
             && 'A' === $this->input[$row + 1][$column + 1]
@@ -61,10 +65,6 @@ final readonly class Day4Part2 implements CodeCracker
 
     private function findDownLeft(int $row, int $column): bool
     {
-        if ($column + 2 >= $this->columnCount || $row + 2 >= $this->rowCount) {
-            return false;
-        }
-
         return (
             'M' === $this->input[$row][$column + 2]
             && 'A' === $this->input[$row + 1][$column + 1]

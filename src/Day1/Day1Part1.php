@@ -2,24 +2,24 @@
 <?php
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Aoc2024\Day1;
+namespace FrankVerhoeven\AoC2024\Day1;
 
-use FrankVerhoeven\Aoc2024\CodeCracker;
+use FrankVerhoeven\AoC2024\PuzzleSolver;
 
-final readonly class Day1Part1 implements CodeCracker
+final readonly class Day1Part1 implements PuzzleSolver
 {
     /** @var list<string> */
     private array $input;
 
     public static function fromStringInput(string $input): self
     {
-        $codeCracker = new self();
-        $codeCracker->input = \explode(\PHP_EOL, $input);
+        $solver = new self();
+        $solver->input = \explode(\PHP_EOL, $input);
 
-        return $codeCracker;
+        return $solver;
     }
 
-    public function crackTheCode(): string
+    public function solve(): string
     {
         $left = $right = [];
 

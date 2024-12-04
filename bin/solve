@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+use FrankVerhoeven\AoC2024\PuzzleSolver;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$day = (int) ($argv[1] ?? 1);
+$part = (int) ($argv[2] ?? 1);
+
+$class = 'FrankVerhoeven\AoC2024\Day' . $day . '\Day' . $day . 'Part' . $part;
+$inputFile = dirname(__DIR__) . '/src/Day' . $day . '/' . basename($argv[3] ?? 'input.txt');
+
+if (!class_exists($class) || !is_a($class, PuzzleSolver::class, true)) {
+    echo 'Specify the correct day and part to use the right solver.' . PHP_EOL;
+    exit(1);
+}
+
+if (!file_exists($inputFile)) {
+    echo 'Input file not found.' . PHP_EOL;
+    exit(1);
+}
+
+$solver = $class::fromStringInput(trim(file_get_contents($inputFile)));
+
+echo 'Result: ' . $solver->solve() . PHP_EOL;

@@ -11,7 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FrankVerhoeven\\Aoc2024\\": "src/"
+            "FrankVerhoeven\\AoC2024\\": "src/"
         }
     },
     "config": {

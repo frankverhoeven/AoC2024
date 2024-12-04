@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace FrankVerhoeven\Aoc2024\Day4;
+namespace FrankVerhoeven\AoC2024\Day4;
 
 use PHPUnit\Framework\TestCase;
 
@@ -9,7 +9,7 @@ final class Day4Part2Test extends TestCase
 {
     public function testExampleCase(): void
     {
-        $codeCracker = Day4Part2::fromStringInput(<<<'INPUT'
+        $solver = Day4Part2::fromStringInput(<<<'INPUT'
 MMMSXXMASM
 MSAMXMSMSA
 AMXSXMAAMM
@@ -22,6 +22,6 @@ MAMMMXMMMM
 MXMXAXMASX
 INPUT);
 
-        self::assertSame('9', $codeCracker->crackTheCode());
+        self::assertSame('9', $solver->solve());
     }
 }
