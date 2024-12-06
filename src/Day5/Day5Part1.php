@@ -44,6 +44,7 @@ final readonly class Day5Part1 implements PuzzleSolver
         return (string) $result;
     }
 
+    /** @param list<string> $page */
     private function isPageValid(array $page): bool
     {
         foreach ($this->rules as [$first, $last]) {

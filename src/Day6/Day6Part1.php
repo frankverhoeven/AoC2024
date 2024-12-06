@@ -27,7 +27,7 @@ final class Day6Part1 implements PuzzleSolver
 
         foreach ($solver->map as $y => $line) {
             foreach ($line as $x => $char) {
-                if ($char === '^') {
+                if ('^' === $char) {
                     $solver->position = [$x, $y];
                     break 2;
                 }
