@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace FrankVerhoeven\AoC2024\Day7;
 
-use FrankVerhoeven\AoC2024\Day7\Day7Part1;
 use PHPUnit\Framework\TestCase;
 
 final class Day7Part2Test extends TestCase

@@ -9,6 +9,7 @@ final class Day7Part1 implements PuzzleSolver
 {
     /** @var list<string> */
     private readonly array $input;
+    /** @var array<int, list<list<string>>> */
     private array $combinations = [];
 
     public static function fromStringInput(string $input): PuzzleSolver
@@ -48,6 +49,7 @@ final class Day7Part1 implements PuzzleSolver
         return (string) \array_sum($valid);
     }
 
+    /** @return list<list<string>> */
     private function possibleCombinations(int $length): array
     {
         if (!isset($this->combinations[$length])) {
